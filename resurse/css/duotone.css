@@ -1,0 +1,43 @@
+.duotone-effect {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.duotone-effect::before,
+.duotone-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: color-burn;
+  transition: transform 2s linear;
+  pointer-events: none;
+  opacity:50%;
+}
+
+.duotone-effect::before {
+  left: 0;
+  background: rgb(221, 10, 150);
+  transform: translateX(-100%);
+}
+
+.duotone-effect::after {
+  right: 0;
+  background: blue;
+  transform: translateX(100%);
+}
+
+.duotone-effect:hover::before,
+.duotone-effect:hover::after {
+  transform: translateX(0);
+}
+
+.duotone-effect img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
