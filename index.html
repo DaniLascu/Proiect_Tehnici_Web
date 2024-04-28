@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang = "ro">
+    <head>
+        <title>WristWatchWonderland</title>
+        <meta charset="UTF-8"><!-- codificarea în memorie a caracterelor-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+        <meta name="keywords" content="ceas, ceasuri, ceas de mana, magazine de ceasuri, WristWatchWonderland (numele companiei), Timex, Casio, Seiko, Atlantic, G-Shock, ceas de barbat, ceasuri pentru barbati, ceas de femeie, ceasuri pentru femei, reducere ceasuri, cele mai noi ceasuri, ceas premium, ceas sport, ceas casual, ceas formal, ceasuri premium, ceasuri sport, ceasuri casual, ceas mecanic, ceas automatic, quartz, transport, curier, curierat"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="WristWatchWonderland ofera o gama variata de ceasuri pentru barbati si femei: ceasuri sport, casual, formale, military si chiar ceasuri premium la cel mai bun pret. Oferte avantajoase servicii rapide si de incredere, livrare la domicilui si politica de garantie avantajoasa."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <meta name="author" content="Daniel Lascu">  <!-- autorul/autoarea paginii--> 
+
+        <link rel="apple-touch-icon" sizes="180x180" href="./resurse/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./resurse/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./resurse/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./resurse/favicon/site.webmanifest">
+        <link rel="mask-icon" href="./resurse/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="./resurse/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="./resurse/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="resurse/css/stil.css" type="text/css" />
+        <link rel="stylesheet" href="resurse/css/layout.css" type="text/css" />
+        <link rel="stylesheet" href="resurse/css/general.css" type="text/css" />
+        <!--<link rel="stylesheet" href="resurse/css/nav.css" type="text/css" />-->
+        <link rel="stylesheet" href="resurse/scss/nav-test.css" type="text/css" />
+        <link rel="stylesheet" href="resurse/css/nav1000.css" type="text/css" media="screen and (max-width:1000px)"/>
+        
+        <!--<link rel="stylesheet" href="resurse/css/nav700.css" type="text/css" media="screen and (max-width:700px)"/>-->
+        <link rel="stylesheet" href="resurse/scss/nav700-test.css" type="text/css" media="screen and (max-width:700px)"/>
+
+        <link rel="stylesheet" href="resurse/css/print.css" type="text/css" />
+
+
+
+        <style>
+            p{
+                color:green; 
+            }
+        </style>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h1>WristWatchWonderland</h1>
+            <nav>
+                <label id="hamburger" for="ch-menu">
+                    <img src="resurse/imagini/Hamburger_menu.png" alt="menu">
+                </label>
+                <input id="ch-menu" type="checkbox">
+                <ul class="meniu">
+                    <li><div id="acasa">Acasa</div><div id="acasa-mediu"><span class="fa-solid fa-house"></span></div>
+                        <ul>
+                            <li><a href = "#welcome">Bine ati venit!</a></li>
+                            <li><a href = "#promotii">Promotii</a>
+                                <ul>
+                                    <li><a href = "#oferte">Oferte</a></li>
+                                    <li><a href = "#reduceri">Reduceri</a></li>
+                                </ul>
+                            </li>
+                            <li><a href = "#noutati">Noutati</a>
+                                <ul>
+                                    <li><a href = "#cele_mai_noi">Cele mai noi</a></li>
+                                    <li><a href = "#cele_mai_vandute">Cele mai vandute</a></li>
+                                </ul>
+                            </li>
+                            <li><a href = "#intrebari">Intrebari</a></li>
+                            <li><a href="#tabel">Orar</a></li>
+                            <li><a href="#calendar">Calendar</a></li>
+                            <li><a href="#rate">Finantere</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Inregistrare</a></li>
+                    <li><div>Despre</div>
+                        <ul>                        
+                            <li><a href="despre.html#prezentare">Prezentare</a></li>
+                            <li><a href="despre.html#istoric">Istoric</a></li>
+                            <li><a href="despre.html#motivatie">Motivatie</a></li>
+                            <li><a href="despre.html#galerie">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li><div>Ceasuri</div>
+                        <ul>
+                            <li><a href="http://www.google.com">Toate</a></li>
+                            <li><a href="#">Ceasuri de barbati</a></li>
+                            <li><a href="#">Ceasuri de Femei</a></li>
+                        </ul>
+                    
+                    </li>
+                    <li><a href="#">Ceasuri Premium</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <p id="watermark"></p>
+
+        <main>
+            <div id="grid-pagina">
+                <section id = "welcome">
+                    <h2>Bine ati venit</h2>
+                    <a target="_blank" href="http://www.google.com">Google</a>
+                    <figure id="imagini">
+                        <picture>
+                            <source srcset="./resurse/imagini/rolex1.jpg" media="(max-width: 1200px)"/>
+                            <source srcset="./resurse/imagini/rolex2.jpg" media="(max-width:1700px)"/>
+                            <img class="picture1" src="./resurse/imagini/rolex3.jpg" alt="imagine ceas" title="Ceas">
+                        </picture>
+                        <figcaption>Ceas Rolex</figcaption>
+                    </figure>
+                    <p class = "intro" style = "color:orange; text-decoration: underline;">Bine ați venit la WatchWorldWonderland - Destinația ta de încredere pentru <b>ceasuri</b> de vis!</p>
+                    <p>În WatchWorldWonderland, suntem dedicați să vă aducem cele mai captivante și elegante ceasuri din întreaga lume, pentru a vă transforma fiecare zi într-o aventură în lumea ceasurilor de vis. Indiferent dacă sunteți în căutarea unui <b>ceas clasic</b> și sofisticat sau a unui <b>model modern</b> și inovator, suntem aici pentru a vă încânta simțurile și pentru a vă satisface cele mai rafinate gusturi.</p>
+                    <p>Descoperiți o colecție diversă de ceasuri de la branduri prestigioase din întreaga lume, fiecare având propria sa poveste și personalitate. De la <b>emblematicul stil elvețian la tehnologia de vârf japoneză</b> și stilurile contemporane din întreaga lume, avem tot ce vă trebuie pentru a vă exprima stilul unic și pentru a vă adăuga un plus de eleganță în orice ocazie.</p>
+                    <p>Colectia noastra de ceasuri de mana contine o gama variata de ceasuri, atat pentru femei cat si pentru barbati, ceasuri sport, casual sau premium.</p>
+                    <p>Fiecare ceas este prezentat în detaliu, cu imagini de înaltă calitate și informații cuprinzătoare, pentru a vă ajuta să luați cea mai bună decizie de achiziție.</p>
+                    <p> Alăturați-vă comunității noastre de pasionați de ceasuri și începeți călătoria dvs. într-un tărâm al minunilor ceasurilor la WristWatchWonderland!</p>
+                </section>
+
+                <section id = "promotii">
+                    <h2>Promotii</h2>
+
+                    <p>Explorează acum ofertele noastre speciale și bucură-te de reduceri exclusive la ceasurile tale preferate! La WristWatchWonderland, ne-am angajat să-ți oferim cele mai bune produse la prețuri competitive, iar reducerile noastre speciale sunt o oportunitate perfectă pentru a-ți îmbogăți colecția de ceasuri fără a-ți depăși bugetul.</p>
+                    <p>Indiferent dacă îți dorești un ceas clasic și elegant sau unul modern și sportiv, vei găsi o varietate de modele de la branduri de top, toate la prețuri reduse. De la cele mai recente colecții până la modelele clasice indiscutabile, ai acum șansa de a-ți alege ceasul preferat la un preț incredibil de avantajos.</p>
+                    <p>Nu rata aceste reduceri limitate în timp! Explorează selecția noastră de ceasuri reduse și profită de oportunitatea de a-ți completa colecția cu stil, economisind în același timp bani. Intră acum în lumea ceasurilor și fă-ți o surpriză plăcută la <abbr title="WristWatchWonderland">WWW</abbr>!</p>
+                    
+                    <section id = "oferte">
+                        <h3>Super Oferte</h3>
+                        <ol>
+                            <li>Super oferta de 8 martie la <b>orice ceas</b> pentru femei cumparat primesti<strong> 40% reducere</strong> la un <b>al doilea ceas</b> de barbati</li>
+                        </ol>
+                    </section>
+
+                    <section id = "reduceri">
+                        <h3>Reduceri</h3>
+                        <ol>
+                            <li>Pentru ca se apropie Pastele toata gama <b>Casio G-Shock</b> beneficiaza de <strong>reduceri de 10%</strong> la ceasurile in valoare de peste 300 de lei</li>
+                            <li>Reduceri de pana la <s>30%</s> <ins>40%</ins> la ceasurile din gama Seiko pe toata perioada lunii Martie!!! <strong>NU ratati</strong> !!!</li>
+                        </ol>
+                    </section>
+
+                </section>
+
+                <section id = "noutati">
+                    <h2>Noutati</h2>
+                    
+                    <section id = "cele_mai_noi">
+                        <h3>Cele mai noi articole</h3>
+                        <p>Stai la curent cu cele mai noi tendințe! Descoperă cele mai recente articole adăugate în colecția noastră de ceasuri.</p>
+                        <figure id="imagini">
+                            <img class="ceas_1" src="./resurse/imagini/11-11-24-basel-by-ralfr-088.jpg" alt = "imagine ceas">
+                            <figcaption><p>Rolex Yacht-Master</p></figcaption>
+                        </figure>
+                        <figure id="imagini">
+                            <img class="ceas_2" src ="./resurse/imagini/casio2.jpg" alt = "imagine ceas">
+                            <figcaption><p>Casio Databank</p></figcaption>
+                        </figure>
+                        <figure id="imagini">
+                            <img class="ceas_3" src ="./resurse/imagini/Grand_Seiko.JPG" alt = "imagine ceas">
+                            <figcaption><p>Grand Seiko</p></figcaption>
+                        </figure>
+                        <figure id="imagini">
+                            <img class="ceas_4" src ="./resurse/imagini/G-Shock.jpg" alt = "imagine ceas">
+                            <figcaption><p>Casio GMW-B5000</p></figcaption>
+                        </figure>
+                    </section>
+
+                    <section id = "cele_mai_vandute">
+                        <h3>Cele mai vandute ceasuri</h3>
+                        <p>Descoperă ceasurile cele mai apreciate de clienții noștri! Aici vei găsi cele mai populare modele de ceasuri, alese cu grijă de pasionații de ceasuri din întreaga lume. Vezi si tu cele mai vandute articole din colectia noastra!</p>
+                        <figure id="imagini">
+                            <img class="ceas_5" src ="./resurse/imagini/G-Shock2.jpg" alt = "imagine ceas">
+                            <p>Casio DW-5000C</p>
+                        </figure>
+                        <figure id="imagini">
+                            <img class="ceas_6" src ="./resurse/imagini/timex.jpg" alt = "imagine ceas">
+                            <p>Timex Expedition</p>
+                        </figure>
+                    </section>
+                </section>
+                <section id="intrebari">
+                    <h2>Intrebari frecvente</h2>
+                    <details>
+                        <summary>Care este durata maxima de livrare?</summary>
+                        <p>Durata de livrare variaza intre 3 zile si 1 saptamana.</p>
+                    </details>
+
+                    <details>
+                        <summary>Ce modalitati de plata pot fi folosite?</summary>
+                        <p>Plata se realizeaza exclusiv online, prin intermediul cardului.</p>
+                    </details>
+
+                    <details>
+                        <summary>Care este suma minima necesara pentru a face o comanda?</summary>
+                        <p>Suma minima a unei comenzi este de 250 de lei.</p>
+                    </details>
+                </section>
+                <section id="calendar">
+                    <h2>Calendar Evenimente</h2>
+                    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, velit nemo ipsum neque animi magnam quibusdam, assumenda tempore beatae fugiat deserunt est nihil dolorum ratione architecto porro ipsa hic ad!</span><span>Quia laudantium, rem iste, natus nisi similique optio voluptate nulla quo libero officia quidem porro atque quibusdam iure sapiente dolor culpa distinctio. Eaque pariatur inventore perspiciatis quae laborum delectus rem.</span><span>Illum a maiores cupiditate quas quae eaque necessitatibus laudantium veritatis fugiat. Possimus sequi rem ab ipsa non nulla placeat incidunt provident sint minima? Ex exercitationem officia labore odit libero at.</span></p>
+                </section>
+                <section id="utilizatori_online">
+                    <h2>Utilizatori Online</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, eligendi. Sed ipsum quasi, in sit quidem dignissimos illum impedit tempore. Saepe similique totam quis nulla consequuntur libero quod distinctio aliquid.</p>
+                </section>
+                <section id="statici">
+                    <h2>Utilizatori Statici</h2>
+                    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolorum quam magnam a? Necessitatibus incidunt doloribus libero nam. Est voluptatibus totam sunt aut soluta pariatur delectus ullam, atque dolore voluptates.</span><span>Voluptatibus quaerat aliquam repudiandae ad reiciendis, cum rem delectus perspiciatis iusto doloribus esse adipisci exercitationem reprehenderit error necessitatibus dicta dolores quis soluta maiores numquam rerum facilis eligendi deserunt. Alias, quis?</span><span>Velit voluptate nisi, ducimus cum asperiores culpa dolorem. Molestiae dolorum repudiandae architecto incidunt saepe? Quisquam veniam cumque voluptatum commodi maxime nulla nostrum repudiandae autem beatae. Quam soluta ipsa perferendis optio!</span></p>
+                </section>
+                <section id="server">
+                    <h2>Informatii Server</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil sunt eveniet, quis nam, animi explicabo error aliquam officiis quod in earum voluptatum voluptatibus voluptas, excepturi dolores porro sint culpa unde?</p>
+                </section>
+                <section id="tabel">
+                    <h2>Tabel</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis exercitationem, veniam incidunt consectetur modi omnis delectus placeat aliquam cum ab consequatur porro ipsum libero corporis saepe blanditiis minima illo odit.</p>
+                    <div class="container-tabel-orar">
+                        <table id="tab-orar">
+                            <caption>Programul de lucru al magazinelor noastre fizice</caption>
+                        <thead>
+     
+                            <tr>
+                                <th>Cod</th>
+                                <th>Perioadă</th>
+                                <th>Zi</th>
+                                <th>Interval dimineata</th>
+                                <th>Pauza de masa</th>
+                                <th>Interval seară</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td rowspan="5">Zile<br/>Lucrătoare</td>
+                                <td>Luni</td>
+                                <td>10-12</td>
+                                <td>12-14</td>
+                                <td>14-20</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                               
+                                <td>Marti</td>
+                                <td>9-12</td>
+                                <td>12-14</td>
+                                <td>14-21</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                               
+                                <td>Miercuri</td>
+                                <td>9-11</td>
+                                <td>11-13</td>
+                                <td>14-21</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                               
+                                <td>Joi</td>
+                                <td>9-11</td>
+                                <td>11-13</td>
+                                <td>14-21</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                               
+                                <td>Vineri</td>
+                                <td>9-12</td>
+                                <td>12-14</td>
+                                <td>14-19</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td rowspan="2">Weekend</td>
+                                <td>Sambata</td>
+                                <td>10-12</td>
+                                <td>12-13</td>
+                                <td>13-16</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Duminica</td>
+                                <td>10-14</td>
+                                <td>-</td>
+                                <td>inchis</td>
+                            </tr>
+                        </tbody>
+                        <tfoot><tr><td colspan="6">Închis cu ocazia sărbătorilor legale.</td></tr></tfoot>
+                        </table>
+                    </div>
+                </section>
+                <section id="iframe">
+                    <div class = "container-iframe">
+                        <div class = "taburi-iframe">
+                            <a href = "https://www.youtube.com/embed/c949y4_tYEM?si=dlOPMpzG0LHasPnc" target="ifr-video">Ceas Omega</a>
+                            <a href = "https://www.youtube.com/embed/6BeNS0uuQ5o?si=mhguS8L0NMW1JM9W" target="ifr-video">Ceas Timex</a>
+                            <a href = "https://www.youtube.com/embed/xqqOZ4za_-8?si=eR3KSFhiEEzC3oJJ" target="ifr-video">Ceas Casio</a>
+                        </div>
+
+                        <iframe class="video" name = "ifr-video" width="531" height="315" src="https://www.youtube.com/embed/xqqOZ4za_-8?si=eR3KSFhiEEzC3oJJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        
+                    </div>
+                </section>
+                <section id="rate">
+                    <h2>Metode de Finantare</h2>
+                    <p>Puteti cumpara un ceas in rate. Rata dobanzii se calculeaza:</p>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    <mrow>
+                      <mi>rata</mi>
+                      <mo>=</mo>
+                      <mrow>
+                        <mfrac>
+                          <mrow>
+                            <mi>p</mi>
+                            <mo>&#x00D7;</mo>
+                            <mn>10</mn>
+                            <mo>%</mo>
+                          </mrow>
+                          <mn>12</mn>
+                        </mfrac>
+                        <mo>+</mo>
+                        <mfrac>
+                          <mi>p</mi>
+                          <mn>12</mn>
+                        </mfrac>
+                      </mrow>
+                    </mrow>
+                    </math>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <a href="#" title="mergi sus" id="link-top"><div id="triunghi">&#129081;</div></a>
+            <a href = "./Proiect_Baze_de_Date_Lascu_Daniel.pdf" download>Descarcare</a>
+            <address>
+                Strada Grozavesti, nr. 16, Bucuresti, sector 6, Romania
+                <br>
+                <i class="fa-solid fa-envelope fa-bounce" style="--fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></i><a href="mailto:contact@example.com">contact@example.com</a><br>
+                <i class="fa-solid fa-phone"></i> <a href="tel:+40711257124"> Telefon</a><br>
+                <i class="fa-solid fa-location-crosshairs"></i><a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica" target="_blank">Facultatea de Matematică și Informatică</a><br>
+                <a href="https://wa.me/+40766700288" target="_blank">Chat pe WhatsApp</a><br>
+            </address>
+
+            <p id="banner">Acesta este un proiect scolar</p>
+
+            <p><small>Copyright &copy; <time datetime="2024-03-03">3 martie 2024</time></small></p>
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,39 @@
+::cue{
+    background: transparent;
+    /*font-style:italic; */
+    color:white;
+    text-shadow: 2px 3px 2px black;
+    font-size: 0.8rem;
+  }
+
+
+/* Setările pentru containerul video */
+#container-video {
+    width: 90%; /* Lățimea în procente */
+    max-width: 800px; /* Lățimea maximă */
+    max-height:500px;
+    position:relative;
+    margin:0 auto;
+}
+
+/* Stilizare pentru containerul de video */
+#clip-video {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Stilizare pentru video */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 800px){
+  ::cue{
+    font-size: 1em;
+  }
+}
+

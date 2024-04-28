@@ -1,0 +1,80 @@
+#text-reflectat{
+	position:relative;
+	left:0;
+	top:100%;
+	transform-origin:0 0;
+	/*conetaza ordinea transformarilor!*/
+	transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px,-25px); 
+	opacity:0.55;
+    border: none;
+    color: black;
+    --x: 10% 13%;
+    --y: 13% 16%;
+    -webkit-mask-image: repeating-radial-gradient(ellipse at bottom, white var(--x), transparent var(--y));
+    mask-image: repeating-radial-gradient(ellipse at bottom, white var(--x), transparent var(--y));
+    /* transition: all 0.5s ease-in-out; */
+}
+
+
+#text{	
+	position:relative;
+    border: none;
+    color: black;
+}
+
+#text, #text-reflectat{
+	font-size:50px;
+	line-height:50px;
+	font-weight: bold;
+}
+
+#text-reflectat:hover, #text:hover  {
+    animation: moveReflection 2s infinite linear;
+}
+
+@keyframes moveReflection {
+    0% {
+        --x:10% 13%;
+        --y:13% 16%;
+    }
+    10% {
+        --x:11% 14%;
+        --y:14% 17%;
+    }
+    20% {
+        --x:12% 15%;
+        --y:15% 18%;
+    }
+    30% {
+        --x:13% 16%;
+        --y:16% 19%;
+    }
+    40% {
+        --x:14% 17%;
+        --y:17% 20%;
+    }
+    50% {
+        --x:15% 18%;
+        --y:18% 21%;
+    }
+    60% {
+        --x:16% 19%;
+        --y:19% 22%;
+    }
+    70% {
+        --x:17% 20%;
+        --y:20% 23%;
+    }
+    80% {
+        --x:18% 21%;
+        --y:21% 24%;
+    }
+    90% {
+        --x:19% 22%;
+        --y:22% 25%;
+    }
+    100% {
+        --x:20% 23%;
+        --y:23% 26%;
+    }
+}

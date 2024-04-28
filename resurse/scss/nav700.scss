@@ -1,0 +1,128 @@
+
+/*facem vizibil iconul de hamburger meniu*/
+/* implicit meniul e ascuns*/
+/*aici facem vizibil meniul cand faem click pe hamburger meniu*/
+/*optiunile se intind pe toata latimea containerului*/
+/*meniul sa vina deasupra continutul de mai jos, fara sa impinga continutul*/
+/* pentru fiecare element din submeniu generam un triunghiulet alb inaintea lui*/
+/*nav ul.meniu>li li a:before{
+    content:" \25B7\00A0	";
+    color:white;
+
+}*/
+@keyframes aparitie_meniu_p {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes aparitie_meniu_p_btn {
+	0% {
+		transform: scale(0,0);
+	}
+	100% {
+		transform: scale(1,1);
+	}
+}
+#hamburger {
+	display: block;
+	>img {
+		height: var(--inaltime-meniu);
+		display: block;
+	}
+}
+ul.meniu {
+	display: none;
+	position: absolute;
+	width: 100%;
+}
+#ch-menu {
+	&:checked+ul.meniu {
+		display: block;
+		z-index: 2;
+		position: relative;
+		animation-name: aparitie_meniu_p;
+		animation-iteration-count: 1;
+		animation-duration: 0.7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: linear;
+		>li {
+			>div {
+				z-index: 2;
+				position: relative;
+				transform-origin: 50% 50%;
+				animation-name: aparitie_meniu_p_btn;
+				animation-iteration-count: 1;
+				animation-duration: 0.7s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+			}
+			>a {
+				z-index: 2;
+				position: relative;
+				transform-origin: 50% 50%;
+				animation-name: aparitie_meniu_p_btn;
+				animation-iteration-count: 1;
+				animation-duration: 0.7s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+			}
+			ul {
+				>* {
+					position: relative;
+					z-index: 200;
+				}
+			}
+		}
+	}
+}
+nav {
+	ul.meniu {
+		li {
+			width: 100%;
+		}
+		>li {
+			ul {
+				position: absolute;
+				width: 100%;
+				z-index: 200;
+				transform: scaleY(0);
+				transform-origin: top;
+				opacity: 0;
+				transition: all 1s linear;
+			}
+			&:hover {
+				>ul {
+					display: block;
+					position: absolute;
+					z-index: 200;
+					animation: animatie_submeniu 1s linear 1 forwards;
+				}
+			}
+		}
+	}
+}
+.meniu {
+	li {
+		&:hover {
+			>div {
+				text-shadow: 0 -100px 0 white;
+			}
+			>a {
+				text-shadow: 0 -100px 0 white;
+			}
+		}
+		ul {
+			li {
+				>div {
+					text-decoration: none;
+				}
+				>a {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

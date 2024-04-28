@@ -1,0 +1,175 @@
+html{
+    font-size: 18px;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#grid-pagina{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    grid-template-areas:    "welcome welcome welcome welcome"
+                            "welcome welcome welcome welcome"
+                            "noutati noutati intrebari intrebari"
+                            "rate rate iframe iframe"
+                            "calendar tabel tabel promotii"
+                            "utilizatori_online statici server server"
+                            "galerie-statica galerie-statica galerie-statica galerie-statica"
+                            "galerie-statica galerie-statica galerie-statica galerie-statica"
+                             ;
+}
+
+#grid-pagina>*{
+    outline: 3px solid var(--culoare5);
+    padding: 2em;
+    border-radius: 0.8em;
+    /*box-shadow: 5px 0px 5px 0px var(--culoare6);*/
+}
+#grid-pagina>figure{
+    margin: 0;
+}
+
+#welcome{
+    grid-area: welcome;
+}
+#tabel{
+    grid-area: tabel;
+}
+#calendar{
+    grid-area:calendar;
+}
+#promotii{
+    grid-area: promotii;
+}
+#noutati{
+    grid-area: noutati;
+}
+#intrebari{
+    grid-area: intrebari;
+}
+
+#anunturi{
+    grid-area:index_intrebari;
+}
+#utilizatori_online{
+    grid-area: utilizatori_online;
+}
+#statici{
+    grid-area: statici;
+}
+
+#server{
+    grid-area:server;
+}
+
+#rate{
+    grid-area: rate;
+}
+
+#iframe{
+    grid-area: iframe;
+}
+
+#galerie-statica{
+    grid-area: galerie-statica;
+}
+
+.ceas_1{
+    width:50%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.ceas_2{
+    width:60%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.ceas_3{
+    width:50%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.ceas_4{
+    width:50%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.ceas_5{
+    width:50%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.ceas_6{
+    width: 50%;
+    height: auto;
+    min-width: 12.5em;
+    max-width: 25em;
+}
+
+.picture1{
+    width: 100%;
+    height: auto;
+}
+
+.video{
+    width: 100%;
+    height: auto;
+    min-width: 300px;
+    min-height: 315px;
+} 
+
+
+@media screen and (max-width:1200px){
+    html{
+        font-size: 15px;
+    }
+    
+    #grid-pagina{
+        grid-template-columns: repeat(2,1fr);
+        gap:5px;
+        grid-template-areas: "welcome welcome "
+                                "intrebari promotii"
+                                "calendar tabel"
+                                "noutati utilizatori_online"
+                                "noutati utilizatori_online"
+                                "statici server"
+                                "iframe rate"
+                                "galerie-statica galerie-statica"
+                                ;
+    }
+
+    #grid-pagina>*{
+        outline: 2px solid var(--culoare5);
+        padding:1em;
+        border-radius:0.5em;
+    }
+
+    body{
+        padding-left: var(--spatiere-mediu);
+        padding-right: var(--spatiere-mediu);
+    }
+}
+
+@media screen and (max-width: 800px){
+    html{
+        font-size: 12px;
+    }
+    #grid-pagina{
+        display: block;
+        gap:4px;
+    }
+    body{
+        padding-left: var(--spatiere-mic);
+        padding-right: var(--spatiere-mic);
+    }
+}

@@ -1,0 +1,22 @@
+<section id="galerie-statica">
+<div id="grid-galerie">
+    <% 
+        const date=new Date();
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const timeString = hour + ":" + min;
+        for (let imag of obGlobal.obImagini.imagini) { 
+            const [startTimeStr, endTimeStr] = imag.timp.split('-');
+            if (timeString >= startTimeStr && timeString <= endTimeStr) {%>
+                <figure>
+                    <picture>
+                        <source srcset="<%=imag.cale_imagine.mediu %>" media="(max-width:1200px)"/>
+                        <img src="<%=imag.cale_imagine %>" alt="ceasuri">
+                    </picture>
+                                
+                    <figcaption><%=imag.titlu %> <br> <%=imag.descriere %></figcaption>
+                </figure>
+            <% } %>
+     <% } %>    
+</div>
+</section>

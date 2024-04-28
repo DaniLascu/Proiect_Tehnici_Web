@@ -1,0 +1,141 @@
+#watermark{
+    display: none;
+    border:none;
+}
+
+@media print{
+    #banner:first-of-type {
+        display: inline-block; /* Display banner only on the first page */
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        border: 5px dotted black;
+        padding: 10px; /* Adjust padding as needed */
+        text-align: center;
+    }
+
+    h1{
+		page-break-after: always;
+		/* margin-top: 50%; */
+        /* margin-bottom: 100%; */
+		text-align:center;
+		/* margin-left:1cm; */
+        display: block;
+        font-size: 2.5em; /* Make font size 2.5 times larger */
+        text-decoration: underline; /* Underline the heading */
+        text-align: center; /* Center the heading horizontally */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center vertically and horizontally */
+	}
+    
+    header{
+        border:none;
+        box-shadow: none;
+        page-break-after: always;
+    }
+
+    nav{
+        display: none;
+    }
+
+    footer{
+        page-break-before: always;
+    }
+
+    #grid-pagina{
+		font-size: 10px;
+		box-sizing:border-box;
+		page-break-before:always;
+		background-color: white;
+        margin-top:3px;
+        /* margin-bottom:3px;
+        gap: 10px; */
+		display:block;
+	}
+
+    #grid-pagina>* {
+        /* Adjust margins and padding */
+        margin-top: 7px;
+        /* padding: 1em; */
+    }
+    
+    /* #grid-pagina>*{
+        border: 3px solid var(--culoare5);
+        outline: none;
+        padding: 2em;
+        border-radius: 0.8em;
+    } */
+
+    #link-top{
+        display: none;
+    }
+
+    #imagini, #iframe{
+        display: none;
+    }
+
+    #grid-pagina a {
+        text-decoration: none; /* Elimină sublinierea */
+        color: inherit; /* Folosește culoarea textului din context */
+    }
+
+    footer a{
+        text-decoration: none;
+        color:inherit;
+    }
+    
+    #watermark
+    {
+        display: block;
+        position: fixed;/*apare pe toate paginile*/
+        bottom:0;
+        color:rgba(0,0,0,0.4);
+        right:0;
+    }
+    #watermark::after{
+        
+        opacity:0.65;
+        padding:5px;
+        display: block;
+        background: white;
+        border: 0.3rem double black;
+        border-top-left-radius:10px;
+        border-bottom-left-radius:10px;
+        border-right:none;
+        width:100px;
+        height: 2cm;
+        text-align: center;
+        line-height: 2cm;
+        z-index: 9999; /* Asigură că watermark-ul este afișat deasupra conținutului */
+        pointer-events: none; /* Permite clicurile să treacă prin watermark */
+        content:"Lascu Daniel";
+    }
+
+    #utilizatori_online{
+        page-break-after: always;
+    }
+
+}
+
+@page {
+    size: A4 portrait;
+    /* margin-bottom:2cm;
+    margin-top:2cm; */
+    counter-increment: page;
+        
+}
+@page:left{
+
+    margin-left:2.5cm;
+    margin-right:0.5cm;
+    /* border-radius: 20cm; */
+}
+@page:right{
+
+    margin-right:2.5cm;
+    margin-left:0.5cm;
+}

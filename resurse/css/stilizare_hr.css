@@ -1,0 +1,35 @@
+.hr-gradient {
+  width: 100%; /* Lățimea completă a elementului hr */
+  height: 12px; /* Înălțimea liniei */
+  background: 
+    /* Primul gradient */
+    repeating-linear-gradient(to right, red 1% 11%, transparent 11% 21%),
+    /* Al doilea gradient */
+    repeating-linear-gradient(to right, var(--culoare3) 3% 13%, transparent 13% 23%),
+    
+  	repeating-linear-gradient(to right, blue 0% 10%, transparent 10% 20%);
+    /* Al treilea gradient */
+	background-size: 100% 33.3333%; /* Ajustarea dimensiunii verticale pentru fiecare gradient */
+  	background-position: left top, left center, left bottom;	
+  	background-repeat: no-repeat; /* Fără repetare pe verticală */
+    opacity: 100%;
+    border: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .hr-gradient{
+        background: 
+        /* Primul gradient */
+        repeating-linear-gradient(to right, red 1% 6%, transparent 1% 11%),
+        /* Al doilea gradient */
+        repeating-linear-gradient(to right, var(--culoare3) 2% 7%, transparent 7% 12%),
+        
+        repeating-linear-gradient(to right, blue 0% 5%, transparent 5% 10%);
+        /* Al treilea gradient */
+        background-size: 100% 33.3333%; /* Ajustarea dimensiunii verticale pentru fiecare gradient */
+        background-position: left top, left center, left bottom;	
+        background-repeat: no-repeat; /* Fără repetare pe verticală */
+        opacity: 100%;
+        border: none;
+    }
+}

@@ -1,0 +1,78 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+			
+		{
+			"cale_imagine":"Ceas1.jpg",
+			"titlu":"Ceas1",
+			"descriere":"Pret: 1000 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas2.jpg",
+			"titlu":"Ceas2",
+			"descriere":"Pret: 1200 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas3.jpg",
+			"titlu":"Ceas3",
+			"descriere":"Pret: 1800 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas4.jpg",
+			"titlu":"Ceas4",
+			"descriere":"Pret: 900 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas5.jpg",
+			"titlu":"Ceas5",
+			"descriere":"Pret: 750 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas6.jpg",
+			"titlu":"Ceas6",
+			"descriere":"Pret: 530 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas7.jpg",
+			"titlu":"Ceas7",
+			"descriere":"Pret: 2000 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas8.jpg",
+			"titlu":"Ceas8",
+			"descriere":"Pret: 10000 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas9.jpg",
+			"titlu":"Ceas9",
+			"descriere":"Pret: 1100 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas10.jpg",
+			"titlu":"Ceas10",
+			"descriere":"Pret: 2350 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas11.jpg",
+			"titlu":"Ceas11",
+			"descriere":"Pret: 2450 lei",
+			"timp":"09:00-23:00"
+		},
+		{
+			"cale_imagine":"Ceas12.jpg",
+			"titlu":"Ceas12",
+			"descriere":"Pret: 1500 lei",
+			"timp":"09:00-23:00"
+		}
+	]
+}

@@ -1,0 +1,36 @@
+
+/* Definirea culorii pentru linkurile vizitate */
+#links a:visited{
+    color: var(--culoare3); /* Culoarea dorită pentru linkurile vizitate */
+}
+
+#links a:active{
+    border: 3px solid black;
+}
+
+/* Definirea stilului pentru linkurile externe */
+#links a[href^="http"]::before {
+    content: "⮳"; /* Simbolul pentru linkurile externe */
+    font-size: 150%; /* Mărimea fontului cu 50% mai mare decât mărimea fontului linkului */
+}
+
+/* Schimbarea culorii simbolului la hover pentru linkurile externe */
+#links a[href^="http"]:hover::before {
+    color: #ff0000; /* Schimbarea culorii la hover */
+}
+
+/* Definirea efectului de pata de culoare la hover pentru linkurile din conținutul paginii */
+#links a:not(.meniu) {
+    position: relative;
+    /* Definirea imaginii de background pentru pata de culoare */
+    background-image: radial-gradient(ellipse at center, skyblue 0%, skyblue 40%, transparent 80%, transparent 100%);
+    background-position: center;
+    background-size: 0; /* Inițial, dimensiunea imaginii este 0 */
+    transition: background-size 1s linear; /* Adăugarea unei tranziții pentru mărimea imaginii */
+}
+
+/* Definirea măririi imaginii de background la hover */
+#links a:not(.meniu):hover {
+    background-size: 100%; /* Mărimea imaginii devine 100% la hover */
+}
+  
