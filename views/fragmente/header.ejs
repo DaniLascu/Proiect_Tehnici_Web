@@ -1,5 +1,7 @@
         <header>
             <h1>WristWatchWonderland</h1>
+            <button id="schimba_tema"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            <script src="/resurse/js/tema.js"></script>
             <nav>
                 <label id="hamburger" for="ch-menu">
                     <img src="/resurse/imagini/Hamburger_menu.png" alt="menu">
@@ -39,8 +41,9 @@
                     <li><div>Ceasuri</div>
                         <ul>
                             <li><a href="/produse">Toate</a></li>
-                            <li><a href="/produse?tip=barbati">Ceasuri de barbati</a></li>
-                            <li><a href="/produse?tip=femei">Ceasuri de Femei</a></li>
+                            <% for (let opt of locals.optiuniMeniu) { %>
+                                <li><a href="/produse?tip=<%- opt.unnest %>"><%- opt.unnest %></a></li>
+                            <% } %>
                         </ul>
                     
                     </li>

@@ -3,7 +3,20 @@ const fs= require('fs');
 const path=require('path');
 const sharp=require('sharp');
 const sass=require('sass');
-// const ejs=require('ejs');
+const ejs=require('ejs');
+const Client = require('pg').Client;
+
+var client= new Client({
+        database:"proiect_tehnici_web",
+        user:"dani",
+        password:"dani",
+        host:"localhost",
+        port:5432});
+client.connect();
+
+client.query("select * from unnest(enum_range(null::gen_ceas))", function(err,rez){
+    console.log(rez);
+})
 
 vect_foldere = ["temp","temp1","backup"]
 for(let folder of vect_foldere){
@@ -30,10 +43,52 @@ app.set("view engine","ejs");
 app.use("/resurse", express.static(__dirname+"/resurse"));
 app.use("/node_modules", express.static(__dirname+"/node_modules"));
 
+app.use(function(req,res,next){
+    client.query("select * from unnest(enum_range(null::gen_ceas))", function(err,rezOptiuni){
+        res.locals.optiuniMeniu = rezOptiuni.rows;
+        next();
+    })
+})
+
 app.get(["/","/index","/home"], function(req,res){
     //res.sendFile(__dirname+"/index.html");
     res.render("pagini/index", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
 });
+
+//----------------------Produse----------------------
+
+app.get("/produse", function(req, res){
+    console.log(req.query)
+    var conditieQuery = "";
+    if(req.query.tip){
+        conditieQuery = ` where gen_ceas='${req.query.tip}' or gen_ceas='unisex'`
+    }
+    client.query("select * from unnest(enum_range(null::gen_ceas))", function(err,rezOptiuni){
+        
+        client.query(`select * from ceasuri ${conditieQuery}`, function(err, rez){
+            if(err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows} )
+            }
+            
+        })
+    });
+})
+
+app.get("/produs/:id", function(req, res){
+    client.query(`select * from ceasuri where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            res.render("pagini/produs", {prod: rez.rows[0]})
+        }
+    })
+})
 
 //trimiterea unui mesaj fix
 app.get("/cerere",function(req,res){

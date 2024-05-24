@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="WristWatchWonderland are o gama variata de ceasuri de calitate. Puteti gasi de la ceasuri sport si casual pana la ceasuri elegante si premium. La noi puteti gasi un ceas pentru orice ocazie si prentru orice gust!">
+        <meta name="keywords" content="ceas, ceasuri, WristWatchWonderland, ceasuri barbati, ceasuri femei, istoric, despre">
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <title>WristWatchWonderland - Produse</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <label> Nume: <input type="text" id="inp-nume"></label>
+        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+        <div> Diametru cadran:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+            <p><label>Mic (diametru &lt; 30mm)
+                <input id="i_rad1"  name="gr_rad" value="0:30" type="radio"/>
+            </label></p>
+            <p><label>Mediu (30mm &le; diametru &lt; 37mm)
+                <input id="i_rad2"  name="gr_rad" value="30:37" type="radio"/>
+            </label>
+            <p><label>Mare (37mm &le; diametru)
+                <input id="i_rad3" name="gr_rad" value="37:1000000000" type="radio"/>
+            </label>
+            <p><label>Toate
+                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
+            </label>
+        </div>
+
+        <div>Functii ceas:
+            <p>
+                <label for="locatie">Locatie:</label>
+                <input type="checkbox" id="locatie" name="locatie" value="locatie" unchecked>
+                
+                <label>are
+                    <input id="i_rad5"  name="functie_locatie" value="are" type="radio" checked/>
+                </label>
+                <label>nu are
+                    <input id="i_rad6"  name="functie_locatie" value="nu are" type="radio"/>
+                </label>
+            </p>
+            <p>
+                <label for="data">Data:</label>
+                <input type="checkbox" id="data" name="data" value="data">
+                
+                <label>are
+                    <input id="i_rad7"  name="functie_data" value="are" type="radio" checked/>
+                </label>
+                <label>nu are
+                    <input id="i_rad8"  name="functie_data" value="nu are" type="radio"/>
+                </label>
+            </p>
+            <p>
+                <label for="alarma">Alarma:</label>
+                <input type="checkbox" id="alarma" name="alarma" value="alarma">
+                
+                <label>are
+                    <input id="i_rad9"  name="functie_alarma" value="are" type="radio" checked/>
+                </label>
+                <label>nu are
+                    <input id="i_rad10"  name="functie_alarma" value="nu are" type="radio"/>
+                </label>
+            </p>
+            <p>
+                <label for="cronometru">Cronometru:</label>
+                <input type="checkbox" id="cronometru" name="cronometru" value="cronometru">
+                
+                <label>are
+                    <input id="i_rad11"  name="functie_cronometru" value="are" type="radio" checked/>
+                </label>
+                <label>nu are
+                    <input id="i_rad12"  name="functie_cronometru" value="nu are" type="radio"/>
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <h3>Brand</h3>
+            <label for="brand">Choose your browser from the list:</label>
+            <input list="brands" name="brand" id="brand">
+
+            <datalist id="brands">
+                <option value="Breguet">
+                <option value="Casio">
+                <option value="Omega">
+                <option value="Rolex">
+                <option value="Seiko">
+                <option value="Timex">
+                <option value="Orient">
+                <option value="Patek Philippe">
+            </datalist>
+        </div><br>
+
+        <div>
+            <label for="descriere_ceas">Detalii despre ceas:</label>
+            <textarea id="descriere_ceas" name="descriere_ceas" rows="4" cols="50"></textarea>
+        </div><br>
+
+
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="10000"> <span id="infoRange">(0)</span></label>
+        <label>Select simplu:
+            <select id="inp-categorie">
+                <option id="sel-toate" selected value="toate">toate</option>
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+            </select>
+        </label>
+
+        <label for="inp_mecanism">Select multiplu:</label>
+
+        <select name="inp_mecanism" id="inp_mecanism" multiple>
+            <option value="mecanic">mecanic</option>
+            <option value="automatic">automatic</option>
+            <option value="quartz">quartz</option>
+            <option value="kinetic">kinetic</option>
+            <option value="toate" selected>toate</option>
+        </select>
+
+        <p>
+        <button id="filtrare" class="btn btn-secondary">
+            <i class="bi bi-filter"></i>
+            <span class="d-none d-md-inline">Filtreaza</span>
+        </button> 
+
+        <button id="resetare" class="btn btn-secondary">
+            <i class="bi bi-arrow-counterclockwise"></i>
+            <span class="d-none d-md-inline">Reseteaza</span>
+        </button><br/>
+        <button id="sortCrescNume" class="btn btn-secondary">
+            <i class="bi bi-sort-up"></i>
+            <span class="d-none d-md-inline">Sorteaza crescator dupa diametru/pret si mecanism</span>
+        </button>
+        <button id="sortDescrescNume" class="btn btn-secondary">
+            <i class="bi bi-sort-down"></i>
+            <span class="d-none d-md-inline">Sorteaza descrescator dupa diametru/pret si mecanism</span>
+        </button>
+        
+        </p>
+        
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        <section id="produse">
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="coloane">
+                            <div class="col1">
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="<%- prod.imagine %>" style="width:80%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                    <figcaption>
+                                        <p class="Id">artc_<span class="val-id"><%- prod.id%></span></p>
+                                    </figcaption>
+                                </figure>
+                                <ul>
+                                    <li class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></li>
+                                    <li class="brand">Brand: <span class="val-brand"><%- prod.brand%></span></li>
+                                    <li class="functii">Functii: <span class="val-functii"><%- prod.functii%></span></li>
+                                    <li class="data">Data adăugare:<span class="val-data"> 
+                                        <time datetime="<%- prod.data_adaugare.toISOString() %>">
+                                            <%- new Date(prod.data_adaugare).toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' }) %>
+                                            <%- '[' + new Date(prod.data_adaugare).toLocaleDateString('ro-RO', { weekday: 'long' }) + ']' %>
+                                        </time>
+                                        </span>
+                                    </li>
+                                    <li class="water">Rezistent la apă: <span class="val-water"><%- prod.water_resistant ? 'Da' : 'Nu' %></span></li>
+                                    <li class="diametru">Diametru cadran: <span class="val-diametru"><%- prod.diametru_cadran%> mm</span></li>
+                                    <li class="mecanism">Mecanism: <span class="val-mecanism"><%- prod.mecanism%></span></li>
+                                </ul>
+                            </div>
+                            <div class="col2">
+                                <div id="pozitionare">
+                                <p class="categorie">Categorie:<span class="val-categorie"><%- prod.gen_ceas%></span></p>
+                                <p class="descriere">Descriere:<span class="val-descriere"><%- prod.descriere%></span></p>
+                                </div>
+                            </div>
+                            
+                            <!-- <label class="selecteaza-cos">
+                                Selectează:<br/>
+                                <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                            </label> -->
+                        </div>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

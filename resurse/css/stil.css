@@ -1,10 +1,15 @@
 body{
-    --culoare1:#74DB25;
+    --culoare1:green;
     --culoare2:#39DB6E;
     --culoare3:#3CDB39;
     --culoare4:#CCDB76;
     --culoare5:#2FDBA1;
     --culoare6: black;
+    --culoare_produse1: #244855;
+    --culoare_produse2: #E64833;
+    --culoare_produse3: #EEE2DC;
+    --culoare_produse4: #90AEAD;
+    --cl_background:white;
 
     --spatiere:150px;
     --spatiere-mediu:100px;
@@ -12,9 +17,27 @@ body{
     padding-left: var(--spatiere);
     padding-right: var(--spatiere);
 }
+body.dark{
+    --culoare1:rgb(10, 11, 10);
+	--culoare5:rgb(64,27,66);
+	--culoare3:rgb(64,27,66,0.5);
+    --culoare2:rgb(81,43,81,0.5);
+    --culoare4:#535C91;
+    --culoare_produse1:#070F2B;
+    --culoare_produse2:#1B1A55;
+    --culoare_produse3:#9290C3;
+    --cl_background: #3a3c3a;;
+    --cl-text:white;
+    /* text-shadow:0px 0px 2px black,0px 0px 1px black,0px 0px 1px black; */
+    /* background: black; */
+    background: var(--cl_background);
+}
+main{
+    background:var(--cl_background);
+}
 
 p{
-    color:var(--culoare3); 
+    color:var(--culoare1); 
     border: 2px solid var(--culoare1);
     padding:0.5em;
 }

@@ -1,0 +1,9 @@
+.btn-primary {
+    border-color: darken(var(--culoare4), 50%);
+}
+.btn-secondary {
+    border-color: darken(var(--culoare2), 50%);
+}
+.btn-danger {
+    border-color: darken(var(--culoare4), 50%);
+}
