@@ -8,26 +8,38 @@
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     </head>
     <body>
     <%- include("../fragmente/header") %>
 
     <main>
         <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Diametru cadran:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Mic (diametru &lt; 30mm)
-                <input id="i_rad1"  name="gr_rad" value="0:30" type="radio"/>
-            </label></p>
-            <p><label>Mediu (30mm &le; diametru &lt; 37mm)
-                <input id="i_rad2"  name="gr_rad" value="30:37" type="radio"/>
-            </label>
-            <p><label>Mare (37mm &le; diametru)
-                <input id="i_rad3" name="gr_rad" value="37:1000000000" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
+        <br><br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons"> Diametru cadran:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+            <p>
+                <label id="lable1" class="btn btn-outline-secondary" for="i_rad1">Mic (diametru &lt; 30mm)
+                    <input id="i_rad1" class="btn-check"  name="gr_rad" value="0:30" type="radio" autocomplete="off"/>
+                </label>
+            </p>
+            <p>
+                <label id="lable2" class="btn btn-outline-secondary" for="i_rad2">Mediu (30mm &le; diametru &lt; 37mm)
+                    <input id="i_rad2" class="btn-check" name="gr_rad" value="30:37" type="radio" autocomplete="off"/>
+                </label>
+            </p>
+            <p>
+                <label id="lable3" class="btn btn-outline-secondary">Mare (37mm &le; diametru)
+                    <input id="i_rad3" class="btn-check" name="gr_rad" value="37:1000000000" type="radio" autocomplete="off"/>
+                </label>
+            </p>
+            <p>
+                <label id="lable4" class="btn btn-outline-secondary active" for="i_rad4">Toate
+                    <input id="i_rad4" class="btn-check" checked name="gr_rad" value="toate" type="radio" autocomplete="off"/>
+                </label>
+            </p>
         </div>
 
         <div>Functii ceas:
@@ -94,13 +106,13 @@
             </datalist>
         </div><br>
 
-        <div>
+        <div class="form-floating">
             <label for="descriere_ceas">Detalii despre ceas:</label>
-            <textarea id="descriere_ceas" name="descriere_ceas" rows="4" cols="50"></textarea>
+            <textarea class="form-control" id="descriere_ceas" name="descriere_ceas" rows="4" cols="50" placeholder="Descriere produsului" style="height: 100px"></textarea>
         </div><br>
 
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="10000"> <span id="infoRange">(0)</span></label>
+        <label> Pret minim: <input class="form-range" type="range" id="inp-pret" value="0" min="0"  max="10000"> <span id="infoRange">(0)</span></label>
         <label>Select simplu:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">toate</option>

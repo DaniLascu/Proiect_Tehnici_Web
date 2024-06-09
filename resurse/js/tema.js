@@ -7,6 +7,10 @@ else{
     document.body.classList.remove("dark");
 }    
 window.addEventListener("DOMContentLoaded", function(){
+    const themeSwitch = document.getElementById("schimba_tema");
+    
+    // Set the initial state of the switch
+    themeSwitch.checked = tema ? true : false;
     document.getElementById("schimba_tema").onclick= function(){
         if(document.body.classList.contains("dark")){
             document.body.classList.remove("dark")

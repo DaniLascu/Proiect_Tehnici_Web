@@ -16,6 +16,29 @@ window.addEventListener("load",function(){
                 window.alert("Numele poate conține doar litere, cifre și spații.");
                 cond_verificare =  false;
             }
+
+            var brand_list = document.getElementById("brands");
+            const options = brand_list.getElementsByTagName('option');
+            console.log(inpBrand_verificare);
+            if(inpBrand_verificare === ""){
+                cond_verificare = true;
+            }
+            else{
+                let ok2 = false;
+                for (let i = 0; i < options.length; i++) {
+                    console.log(options[i].value.trim().toLocaleLowerCase() == (inpBrand_verificare)); // Access the value attribute of each option
+                    if(options[i].value.trim().toLowerCase() == (inpBrand_verificare)){
+                        ok2 = true;
+                        break;
+                    }
+                }
+                if(!ok2){
+                    cond_verificare = false;
+                    window.alert("Brand-ul nu se gaseste pe acest site");
+                    document.getElementById("brand").value = "";
+                }
+                else{cond_verificare = true;}
+            }
             
             return cond_verificare;
         }
@@ -113,7 +136,7 @@ window.addEventListener("load",function(){
             var inpMecanism = document.getElementById("inp_mecanism").selectedOptions;
             var values = Array.from(inpMecanism).map(({ value }) => value);
 
-
+            if(verificaValoriFiltrare() && validateTextarea()){
             var produse= document.getElementsByClassName("produs");
             for(let produs of produse){
                 let valNume = produs.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase();
@@ -187,13 +210,14 @@ window.addEventListener("load",function(){
                     }
                     console.log(values.length);
                 }
-                console.log(verificaValoriFiltrare());
+                //console.log(verificaValoriFiltrare());
                 if(cond1 && cond2 && cond3 && cond4 && (cond6 || cond5) && (cond7 || cond8) && (cond9 || cond10) && (cond11 || cond12) && cond13 && cond14 && cond15){
                     produs.style.display="block";
                 }
                 else{
                     produs.style.display="none";
                 }
+            }
             }
         }
 
@@ -218,6 +242,10 @@ window.addEventListener("load",function(){
                 document.getElementById("brand").value="";
                 document.getElementById("descriere_ceas").value="";
                 document.getElementById("inp_mecanism").value="toate";
+                document.getElementById("lable1").classList.remove("active");
+                document.getElementById("lable2").classList.remove("active");
+                document.getElementById("lable3").classList.remove("active");
+                document.getElementById("lable4").classList.add("active");
                 var produse=document.getElementsByClassName("produs");
                 document.getElementById("infoRange").innerHTML="(0)";
                 for (let prod of produse){
@@ -308,6 +336,20 @@ window.addEventListener("load",function(){
             }
             return matrix[an][bn];
         }
+
+        function validateTextarea() {
+            const textarea = document.getElementById("descriere_ceas");
+            const descriere = textarea.value.trim();
+            if (descriere.length > 20) {
+                textarea.classList.add("is-invalid");
+                return false;
+            } else {
+                textarea.classList.remove("is-invalid");
+                return true;
+            }
+        }
+        document.getElementById("descriere_ceas").addEventListener("input", validateTextarea);
+
     }
 )
 
