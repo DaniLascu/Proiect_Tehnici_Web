@@ -350,6 +350,73 @@ window.addEventListener("load",function(){
         }
         document.getElementById("descriere_ceas").addEventListener("input", validateTextarea);
 
+        function salveazaFiltre() {
+            let filtre = {
+                nume: document.getElementById("inp-nume").value,
+                pret: document.getElementById("inp-pret").value,
+                categorie: document.getElementById("inp-categorie").value,
+                diametru: document.querySelector('input[name="gr_rad"]:checked').value,
+                locatie: {
+                    checked: document.getElementById("locatie").checked,
+                    radio: document.querySelector('input[name="functie_locatie"]:checked').value
+                },
+                data: {
+                    checked: document.getElementById("data").checked,
+                    radio: document.querySelector('input[name="functie_data"]:checked').value
+                },
+                alarma: {
+                    checked: document.getElementById("alarma").checked,
+                    radio: document.querySelector('input[name="functie_alarma"]:checked').value
+                },
+                cronometru: {
+                    checked: document.getElementById("cronometru").checked,
+                    radio: document.querySelector('input[name="functie_cronometru"]:checked').value
+                },
+                brand: document.getElementById("brand").value,
+                descriere: document.getElementById("descriere_ceas").value,
+                mecanism: Array.from(document.getElementById("inp_mecanism").selectedOptions).map(opt => opt.value)
+            };
+        
+            localStorage.setItem('filtre', JSON.stringify(filtre));
+            alert("Filtrele au fost salvate!");
+        }
+        
+        document.getElementById("salvareFiltre").addEventListener("click", salveazaFiltre);
+
+        function incarcaFiltre() {
+            let filtre = JSON.parse(localStorage.getItem('filtre'));
+            if (filtre) {
+                document.getElementById("inp-nume").value = filtre.nume;
+                document.getElementById("inp-pret").value = filtre.pret;
+                document.getElementById("inp-categorie").value = filtre.categorie;
+                document.querySelector(`input[name="gr_rad"][value="${filtre.diametru}"]`).checked = true;
+        
+                document.getElementById("locatie").checked = filtre.locatie.checked;
+                document.querySelector(`input[name="functie_locatie"][value="${filtre.locatie.radio}"]`).checked = true;
+        
+                document.getElementById("data").checked = filtre.data.checked;
+                document.querySelector(`input[name="functie_data"][value="${filtre.data.radio}"]`).checked = true;
+        
+                document.getElementById("alarma").checked = filtre.alarma.checked;
+                document.querySelector(`input[name="functie_alarma"][value="${filtre.alarma.radio}"]`).checked = true;
+        
+                document.getElementById("cronometru").checked = filtre.cronometru.checked;
+                document.querySelector(`input[name="functie_cronometru"][value="${filtre.cronometru.radio}"]`).checked = true;
+        
+                document.getElementById("brand").value = filtre.brand;
+                document.getElementById("descriere_ceas").value = filtre.descriere;
+        
+                let mecanismSelect = document.getElementById("inp_mecanism");
+                for (let opt of mecanismSelect.options) {
+                    opt.selected = filtre.mecanism.includes(opt.value);
+                }
+        
+                document.getElementById("infoRange").innerHTML = `(${filtre.pret})`;
+            }
+        }
+        
+        document.getElementById("repunereFiltre").addEventListener("click", incarcaFiltre);        
+        
     }
 )
 
