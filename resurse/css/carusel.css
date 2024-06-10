@@ -1,0 +1,33 @@
+#carusel{
+    width: 50%;
+    height: auto;
+    position: relative;
+    align-self: center;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#carouselExampleIndicators{
+    height: 100%;
+   
+}
+.carousel-inner{
+    height: 100%;
+}
+.d-block{
+    height: auto;
+    max-height: 20rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: magenta;
+}
+
+
+#p_carusel{
+    border: none;
+    color: white;
+}
+
+

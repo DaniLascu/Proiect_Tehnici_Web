@@ -36,6 +36,10 @@
                     <p>Colectia noastra de ceasuri de mana contine o gama variata de ceasuri, atat pentru femei cat si pentru barbati, ceasuri sport, casual sau premium.</p>
                     <p>Fiecare ceas este prezentat în detaliu, cu imagini de înaltă calitate și informații cuprinzătoare, pentru a vă ajuta să luați cea mai bună decizie de achiziție.</p>
                     <p> Alăturați-vă comunității noastre de pasionați de ceasuri și începeți călătoria dvs. într-un tărâm al minunilor ceasurilor la WristWatchWonderland!</p>
+                    <div id="cookie_info">
+                        <!-- Informațiile despre cookie-uri vor fi afișate aici -->
+                    </div>
+                    
                 </section>
 
                 <section id = "promotii">
@@ -325,6 +329,28 @@
                       </mrow>
                     </mrow>
                     </math>
+                </section>
+                <section id="carusel">
+                    <%- include("../fragmente/carousel.ejs") %>
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            // Event handler for carousel indicators
+                            $('#carouselExampleIndicators ol.carousel-indicators li').click(function() {
+                                // Get the index of the clicked indicator
+                                var index = $(this).index();
+                                // Activate the corresponding slide
+                                $('#carouselExampleIndicators .carousel-inner .carousel-item').removeClass('active');
+                                $('#carouselExampleIndicators .carousel-inner .carousel-item').eq(index).addClass('active');
+                                // Update the active class on the clicked indicator
+                                $('#carouselExampleIndicators ol.carousel-indicators li').removeClass('active');
+                                $(this).addClass('active');
+                            });
+                        });
+                    </script>
                 </section>
             </div>
         </main>

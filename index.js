@@ -66,7 +66,19 @@ app.use(function(req,res,next){
 
 app.get(["/","/index","/home"], function(req,res){
     //res.sendFile(__dirname+"/index.html");
-    res.render("pagini/index", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
+    //res.render("pagini/index", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
+    // Obține 5 produse aleatoare din baza de date
+    var conditieQuery = " ORDER BY random() LIMIT 5";
+    client.query(`select * from ceasuri ${conditieQuery}`, function(err, rez){
+        if(err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            // Renderează pagina index și trimite cele 5 produse aleatoare către șablonul EJS
+            res.render("pagini/index", { produse: rez.rows, ip:req.ip, imagini:obGlobal.obImagini.imagini });
+        }
+    });
 });
 
 //----------------------Produse----------------------

@@ -1,0 +1,28 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+    <ol class="carousel-indicators">
+        <% for (let i = 0; i < locals.produse.length; i++) { %>
+            <li data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide-to="<%= i %>" <%= i === 0 ? 'class="active"' : '' %>></li>
+        <% } %>
+    </ol>
+    <div class="carousel-inner">
+        <% locals.produse.forEach(function(prod, index) { %>
+            <div class="trailerSlider carousel-item <%= index === 0 ? 'active' : '' %>">
+                <img class="d-block w-100" src="<%= prod.imagine %>" alt="Slide <%= index %>">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5><%= prod.nume %></h5>
+                    <p id="p_carusel"><%= prod.pret %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    
+</div>

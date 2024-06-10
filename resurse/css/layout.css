@@ -16,6 +16,7 @@ html{
                             "utilizatori_online statici server server"
                             "galerie-statica galerie-statica galerie-statica galerie-statica"
                             "galerie-statica galerie-statica galerie-statica galerie-statica"
+                            "carusel carusel carusel carusel"
                              ;
 }
 
@@ -72,6 +73,10 @@ html{
 
 #galerie-statica{
     grid-area: galerie-statica;
+}
+
+#carusel{
+    grid-area: carusel;
 }
 
 .ceas_1{
