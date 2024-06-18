@@ -32,6 +32,21 @@
                 </article>
             
         </section>
+        <section id="produse-similare">
+            <h3>Produse similare</h3>
+            <div class="similare-lista">
+                <% locals.similare.forEach(function(Prod) { %>
+                    <div class="produs-similar">
+                        <a href="/produs/<%- Prod.id %>">
+                            <h4><%- Prod.nume %></h4>
+                            <img src="../<%- Prod.imagine %>" alt="imagine <%- Prod.nume %>" />
+                        </a>
+                        <p>Pret: <%- Prod.pret %></p>
+                        <p><%- Prod.brand %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
     </main>
 
     <%- include("../fragmente/footer") %>

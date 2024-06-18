@@ -34,6 +34,61 @@ h2{
     width:50%;
     height:auto;
 }
+
+#produse-similare {
+    margin-top: 40px;
+}
+
+#produse-similare h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.similare-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.produs-similar {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produs-similar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.produs-similar img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.produs-similar h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.produs-similar p {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.produs-similar a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media screen and (max-width: 700px){
     #art-produs{
         margin:0 auto;

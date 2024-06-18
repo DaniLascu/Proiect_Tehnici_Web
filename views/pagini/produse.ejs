@@ -4,6 +4,7 @@
         <meta name="description" content="WristWatchWonderland are o gama variata de ceasuri de calitate. Puteti gasi de la ceasuri sport si casual pana la ceasuri elegante si premium. La noi puteti gasi un ceas pentru orice ocazie si prentru orice gust!">
         <meta name="keywords" content="ceas, ceasuri, WristWatchWonderland, ceasuri barbati, ceasuri femei, istoric, despre">
         <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <link rel="stylesheet" href="/resurse/css/min_price.css" type="text/css" />
         <title>WristWatchWonderland - Produse</title>
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
@@ -95,14 +96,15 @@
             <input list="brands" name="brand" id="brand">
 
             <datalist id="brands">
-                <option value="Breguet">
-                <option value="Casio">
-                <option value="Omega">
-                <option value="Rolex">
-                <option value="Seiko">
-                <option value="Timex">
-                <option value="Orient">
-                <option value="Patek Philippe">
+                <% 
+                    const uniqueBrands = new Set();
+                    for (let produs of locals.produse) {
+                        uniqueBrands.add(produs.brand);
+                    }
+                    uniqueBrands.forEach(brand => { %>
+                        <option value="<%= brand %>"></option>
+                    <% });
+                %>
             </datalist>
         </div><br>
 
@@ -111,8 +113,25 @@
             <textarea class="form-control" id="descriere_ceas" name="descriere_ceas" rows="4" cols="50" placeholder="Descriere produsului" style="height: 100px"></textarea>
         </div><br>
 
-
-        <label> Pret minim: <input class="form-range" type="range" id="inp-pret" value="0" min="0"  max="10000"> <span id="infoRange">(0)</span></label>
+        <% 
+            const preturi = new Set();
+            for (let produs of locals.produse) {
+                preturi.add(parseInt(produs.pret)); // Convertim fiecare pret la integer folosind parseInt
+            }
+            
+            // Convertim setul într-un array folosind spread operator
+            const arrayPreturi = [...preturi];
+            
+            console.log(arrayPreturi);
+            
+            // Calculăm minimul și maximul din array-ul de preturi
+            let minimul = Math.min(...arrayPreturi);
+            let maximul = Math.max(...arrayPreturi);
+            
+            console.log(minimul);
+            console.log(maximul);
+        %>
+        <label> Pret minim: <input class="form-range" type="range" id="inp-pret" value="0" min="<%- minimul %>"  max="<%- maximul%>"> <span id="infoRange">(0)</span></label>
         <label>Select simplu:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">toate</option>
@@ -125,10 +144,14 @@
         <label for="inp_mecanism">Select multiplu:</label>
 
         <select name="inp_mecanism" id="inp_mecanism" multiple>
-            <option value="mecanic">mecanic</option>
-            <option value="automatic">automatic</option>
-            <option value="quartz">quartz</option>
-            <option value="kinetic">kinetic</option>
+            <% const uniqueMecanisme = new Set();
+                    for (let produs of locals.produse) {
+                        uniqueMecanisme.add(produs.mecanism);
+                    }
+                    uniqueMecanisme.forEach(mecanism => { %>
+                        <option value="<%= mecanism %>"><%= mecanism %></option>
+                    <% });
+            %>
             <option value="toate" selected>toate</option>
         </select>
 
@@ -179,7 +202,21 @@
                                     </figcaption>
                                 </figure>
                                 <ul>
-                                    <li class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></li>
+                                    <li class="pret">Pret: <span class="val-pret"><%- prod.pret%></span>
+                                        <%
+                                            let pret_minim = true;
+                                            for(let prod2 of locals.produse){
+                                                if(prod2.gen_ceas === prod.gen_ceas && parseInt(prod2.pret)<parseInt(prod.pret)){
+                                                    pret_minim = false;
+                                                    break;
+                                                }
+                                            }
+                                            console.log(pret_minim);
+                                            if (pret_minim) { %>
+                                                <span class="min-price-label">Cel mai ieftin produs!</span>
+                                            <% } 
+                                        %>
+                                    </li>
                                     <li class="brand">Brand: <span class="val-brand"><%- prod.brand%></span></li>
                                     <li class="functii">Functii: <span class="val-functii"><%- prod.functii%></span></li>
                                     <li class="data">Data adăugare:<span class="val-data"> 
@@ -199,6 +236,49 @@
                                 <p class="categorie">Categorie:<span class="val-categorie"><%- prod.gen_ceas%></span></p>
                                 <p class="descriere">Descriere:<span class="val-descriere"><%- prod.descriere%></span></p>
                                 </div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter-<%- prod.id %>">
+                                Launch demo modal
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter-<%- prod.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal window</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <article id="art-produs">
+                                                    <% var productId = prod.id; 
+                                                    console.log(productId)%>
+                                                    <h3><span class="nume"><%- prod.nume %></span></h3>
+                                                    <p>Pret: <span class="pret"><%- prod.pret %> </span></p>
+                                                    <p>Descriere: <span class="descriere"><%- prod.descriere %> </span></p>
+                                                    <p>Diametru cadran: <span class="diametru"><%- prod.diametru_cadran %> </span></p>
+                                                    <p>Gen: <span class="gen"><%- prod.gen_ceas %> </span></p>
+                                                    <p>Mecanism: <span class="mecanism"><%- prod.mecanism %> </span></p>
+                                                    <p>Tip display: <span class="display"><%- prod.display %> </span></p>
+                                                    <p>Brand: <span class="brand"><%- prod.brand %> </span></p>
+                                                    <p>Functii: <span class="functii"><%- prod.functii %> </span></p>
+                                                    <p>Rezistanta apa: <span class="water"><%- prod.water_resistant %> </span></p>
+                                                    <p>Data adăugare: <span class="categorie"><%- prod.data_adaugare %> </span></p>
+                                                    <figure class="imag-produs">
+                                                        <img  src="../<%- prod.imagine %>" alt="[imagine <%- prod.nume %>]" />
+                                                    </figure>    
+                                                </article>
+                                                <%console.log(prod.nume)%>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                                                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             <!-- <label class="selecteaza-cos">
@@ -210,6 +290,15 @@
                 <% }%>
             </div>
         </section>
+        <div class="pagination" id="pagination"> 
+            <a href="#" id="prev">Previous</a> 
+            <a href="#" class="page-link" data-page="1">1</a> 
+            <a href="#" class="page-link" data-page="2">2</a> 
+            <a href="#" class="page-link" data-page="3">3</a> 
+            <a href="#" id="next">Next</a> 
+            <p id="page-numbers"> </p> 
+        </div> 
+        <script src="/resurse/js/script_produse.js">  </script> 
     </main>
 
     <%- include("../fragmente/footer") %>

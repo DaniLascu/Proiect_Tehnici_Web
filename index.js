@@ -105,15 +105,25 @@ app.get("/produse", function(req, res){
 })
 
 app.get("/produs/:id", function(req, res){
-    client.query(`select * from ceasuri where id=${req.params.id}`, function(err, rez){
+    // client.query(`select * from ceasuri where id=${req.params.id}`, function(err, rez){
+    //     if (err){
+    //         console.log(err);
+    //         afisareEroare(res, 2);
+    //     }
+    //     else{
+    //         res.render("pagini/produs", {prod: rez.rows[0]})
+    //     }
+    // })
+    client.query(`select * from ceasuri`, function(err, toateProdusele){
         if (err){
             console.log(err);
             afisareEroare(res, 2);
+        } else {
+            const produsCurent = toateProdusele.rows.find(produs => produs.id == req.params.id);
+            const produseSimilare = toateProdusele.rows.filter(produs => produs.gen_ceas === produsCurent.gen_ceas && produs.id != req.params.id);
+            res.render("pagini/produs", {prod: produsCurent, similare: produseSimilare});
         }
-        else{
-            res.render("pagini/produs", {prod: rez.rows[0]})
-        }
-    })
+    });
 })
 
 //--------------------------------Utilizatori-------------------------

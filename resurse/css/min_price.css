@@ -1,0 +1,9 @@
+.min-price-label {
+    background-color: #f0ad4e; /* culoare de fundal portocalie */
+    color: #fff; /* culoare text alb */
+    padding: 4px 8px; /* padding pentru aeronavigabilitate */
+    border-radius: 4px; /* colțuri rotunde */
+    font-size: 14px; /* dimensiunea fontului */
+    font-weight: bold; /* text bold */
+    margin-left: 10px; /* spațiu la stânga pentru a distinge de pret */
+}
